@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="个人简历 - 张明 | 全栈开发 | 项目经验" />
+    <title>张明 - 个人简历</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+        }
+
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* 主要内容样式 */
+        .main-content {
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+
+        /* 技能网格 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .skill-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-item ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .skill-item li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* 项目经验样式 */
+        .project, .experience, .education {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .project h3, .experience h3, .education h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .project-date, .experience-date, .education-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .experience-duties {
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        .experience-duties li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .experience-duties li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 20px 0;
+            }
+            
+            .contact-info {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .social-links a {
+                color: #3498db !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <header class="header">
+            <img src="求职头像.png" alt="头像" class="profile-img" />
+            <h1>张明</h1>
+            <p class="title">全栈开发工程师</p>
+            <div class="contact-info">
+                <p><strong>邮箱:</strong> zhangming@example.com</p>
+                <p><strong>电话:</strong> (+86) 138-0000-0000</p>
+                <p><strong>所在地:</strong> 北京, 中国</p>
+            </div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main class="main-content">
+            <!-- 关于我 -->
+            <section class="section">
+                <h2>关于我</h2>
+                <p>
+                    具有5年经验的全栈开发工程师，专注于构建高效、可扩展的Web应用。
+                    精通JavaScript生态系统，对用户体验有深刻理解。善于团队协作，
+                    具备良好的问题解决能力和学习新技术的热情。
+                </p>
+            </section>
+
+            <!-- 技能 -->
+            <section class="section">
+                <h2>技能</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h3>技术技能</h3>
+                        <ul>
+                            <li>编程语言: JavaScript, Python, HTML/CSS, SQL</li>
+                            <li>前端: React, Vue.js, TypeScript, Redux</li>
+                            <li>后端: Node.js, Express, Django, RESTful API</li>
+                            <li>数据库: MySQL, MongoDB, Redis</li>
+                            <li>工具: Git, Docker, Webpack, Jest</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <h3>软技能</h3>
+                        <ul>
+                            <li>团队协作与领导能力</li>
+                            <li>跨部门沟通</li>
+                            <li>问题分析与解决</li>
+                            <li>时间管理与优先级排序</li>
+                            <li>持续学习与自我提升</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 项目经验 -->
+            <section class="section">
+                <h2>项目经验</h2>
+                <div class="project">
+                    <h3>电商平台重构项目</h3>
+                    <p class="project-date">2023年3月 - 2024年2月</p>
+                    <p class="project-description">
+                        领导团队对现有电商平台进行现代化重构，采用微服务架构和前后端分离设计。
+                        新系统提升了300%的页面加载速度，支持每日10万+订单处理，系统稳定性显著提高。
+                        项目成功上线后，客户满意度提升了45%。
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">微服务</span>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>企业内部管理系统</h3>
+                    <p class="project-date">2022年1月 - 2023年2月</p>
+                    <p class="project-description">
+                        设计并开发了一套完整的内部管理系统，整合了人事、财务、项目管理等功能模块。
+                        系统实现了90%的流程自动化，减少了人工操作错误，每年为公司节省约150万元运营成本。
+                        系统用户超过500人，获得公司年度最佳项目奖。
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Element UI</span>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>移动端健康管理应用</h3>
+                    <p class="project-date">2021年5月 - 2022年1月</p>
+                    <p class="project-description">
+                        开发了一款移动端健康管理应用，支持健康数据追踪、智能分析和个性化建议。
+                        应用上线3个月内获得5万+下载量，用户日均使用时长达到25分钟。
+                        项目采用了PWA技术，实现了接近原生应用的用户体验。
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">PWA</span>
+                        <span class="tag">Chart.js</span>
+                        <span class="tag">JWT</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工作经历 -->
+            <section class="section">
+                <h2>工作经历</h2>
+                <div class="experience">
+                    <h3>科技有限公司 - 高级全栈工程师</h3>
+                    <p class="experience-date">2021年3月 - 至今</p>
+                    <ul class="experience-duties">
+                        <li>负责核心产品架构设计和技术选型，带领5人开发团队</li>
+                        <li>优化系统性能，将API响应时间从800ms降低到200ms以内</li>
+                        <li>建立CI/CD流程，实现自动化测试和部署，发布效率提升70%</li>
+                        <li>指导初级工程师，组织技术分享会，提升团队整体技术水平</li>
+                    </ul>
+                </div>
+
+                <div class="experience">
+                    <h3>软件公司 - 全栈开发工程师</h3>
+                    <p class="experience-date">2019年7月 - 2021年2月</p>
+                    <ul class="experience-duties">
+                        <li>参与多个客户项目的开发和维护，按时交付率100%</li>
+                        <li>重构遗留系统，提高代码可维护性，bug率降低60%</li>
+                        <li>与产品经理和设计师紧密合作，确保产品功能和用户体验</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 教育背景 -->
+            <section class="section">
+                <h2>教育背景</h2>
+                <div class="education">
+                    <h3>北京大学 - 计算机科学与技术</h3>
+                    <p class="education-date">2015年9月 - 2019年6月</p>
+                    <p>学士学位 | 主修课程: 数据结构、算法设计、数据库原理、计算机网络</p>
+                    <p>GPA: 3.7/4.0</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 张明. 保留所有权利.</p>
+            <div class="social-links">
+                <a href="https://github.com/zhangming" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/zhangming" target="_blank">LinkedIn</a>
+                <a href="https://medium.com/@zhangming" target="_blank">技术博客</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 滚动时添加淡入效果
+            const sections = document.querySelectorAll('.section, .project, .experience, .education');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // 添加打印按钮
+            const printButton = document.createElement('button');
+            printButton.textContent = '打印简历';
+            printButton.style.position = 'fixed';
+            printButton.style.bottom = '20px';
+            printButton.style.right = '20px';
+            printButton.style.padding = '10px 15px';
+            printButton.style.backgroundColor = '#3498db';
+            printButton.style.color = 'white';
+            printButton.style.border = 'none';
+            printButton.style.borderRadius = '5px';
+            printButton.style.cursor = 'pointer';
+            printButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+            printButton.style.zIndex = '1000';
+            
+            // 在移动设备上显示打印按钮
+            if (window.innerWidth <= 768) {
+                document.body.appendChild(printButton);
+            }
+            
+            printButton.addEventListener('click', () => {
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>
